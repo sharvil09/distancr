@@ -45,8 +45,8 @@ server <- function(input, output) {
     df <- reactive({
         test <- patt %>% filter(!is.na(lon)) %>% filter(location_name == input$storeChoice)
         
-        new <- distHaversine(SpatialPoints(ZipCodes[match(input$zipChoice, ZipCodes$zip), 10:11]),
-                             SpatialPoints(test %>% select(lat, lon)))
+        new <- distHaversine(SpatialPoints(ZipCodes[match(input$zipChoice, ZipCodes$zip), 11:10]),
+                             SpatialPoints(test %>% select(lon, lat)))
         
         test <- left_join((test)[which(new < (input$radiusChoice)*1609.34), 1:9], test, by = "safegraph_place_id")
         
