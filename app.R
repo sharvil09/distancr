@@ -43,7 +43,7 @@ server <- function(input, output) {
     
     # reactive df
     df <- reactive({
-        test <- patt %>% filter(!is.na(lon)) %>% filter(location_name == input$storeChoice)
+        test <- patt %>% filter(!is.na(lon)) %>% filter(location_name %in% input$storeChoice)
         
         new <- distHaversine(SpatialPoints(ZipCodes[match(input$zipChoice, ZipCodes$zip), 11:10]),
                              SpatialPoints(test %>% select(lon, lat)))
@@ -82,13 +82,15 @@ server <- function(input, output) {
                           tags$a(href = url, target = "_blank", as.character(value))
                       }),
                       `COVID Score` = colDef(style = function(value) {
-                          if (value > mean(df()$expected_covid_vistors, na.rm = T)) {
+                          if (is.na(value)) {
+                            color <- "yellow"
+                          } else if (value > mean(df()$expected_covid_vistors, na.rm = T)) {
                               color <- "red"
                           } else if (value < mean(df()$expected_covid_vistors, na.rm = T)) {
                               color <- "green"
                           }
                           list(color = color, fontWeight = "bold")
-                      })),
+                      }, sortNALast = T)),
                   details = function(index) {
                       plant_data <- df2()[index, ]
                       div(style = "padding: 16px", reactable(plant_data, outlined = TRUE)
