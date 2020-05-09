@@ -11,6 +11,7 @@ To use the app, select which grocery store you want to go to (e.g., Kroger or Wa
 
 Risk Calculation
 ------------
+Using a mix of proprietary and publicly available datasests, we calculated the expected number of people infected with COVID per census block group. Then for each point of interest in our dataset, we used the visitor home CBG distribution to calculate the point of interest's expected number of COVID visitors. 
 
 Future Work
 ------------
