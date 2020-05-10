@@ -11,7 +11,7 @@ To use the app, select which grocery store you want to go to (e.g., Kroger or Wa
 
 Risk Calculation
 ------------
-Using a mix of proprietary and publicly available datasests, we calculated the expected number of people infected with COVID per census block group. Then for each point of interest in our dataset, we used the visitor home CBG distribution to calculate the point of interest's expected number of COVID visitors. 
+Using a mix of proprietary and publicly available datasests, we calculated the expected number of people infected with COVID per census block group. While symptomatic people likely take efforts not to shop at grocery stores themselves, we use the number reported (mostly symptomatic) cases as a proxy for asymptomatic people who exhibit the same shopping behavior as healthy people. This assumption is based on multiple testing studies that suggest 50% of COVID cases are asymptomatic. Then for each point of interest in our dataset, we used the  distribution of visitor home county and Census Block Group (CBG) to calculate the store's expected number of COVID visitors per day. This method also assumes that foot-traffic to a particular store is static for a given month, but does account for daily changes in reported COVID cases.
 
 Future Work
 ------------
