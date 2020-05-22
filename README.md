@@ -35,5 +35,5 @@ Technical Requirements
 >
 >**Instructions**
 >
->1. Project is listed at https://sharvil09.shinyapps.io/Distance_v2/.
+>1. Project is listed at https://sharvil09.shinyapps.io/test/.
 
